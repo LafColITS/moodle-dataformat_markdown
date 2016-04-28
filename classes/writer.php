@@ -33,7 +33,7 @@ defined('MOODLE_INTERNAL') || die();
  * @copyright  2016 Charles Fulton (fultonc@lafayette.edu)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class writer extends \moodle_dataformat {
+class writer extends \core\dataformat\base {
 
     /** @var $mimetype */
     public $mimetype = "text/markdown";
@@ -58,6 +58,16 @@ class writer extends \moodle_dataformat {
      * @param int $rownum
      */
     public function write_record($record, $rownum) {
-        echo '|' . implode('|', $record) . '|' . "\n";
+        echo '|' . $this->sanitize_record(implode('|', $record)) . '|' . "\n";
+    }
+
+    /**
+     * Remove line breaks from a record
+     *
+     * @param string $record
+     * @return string
+     */
+    private function sanitize_record($record) {
+        return preg_replace('~[[:cntrl:]]~', '', $record);
     }
 }
