@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Data activity filter version information
+ * Markdown dataformat version information
  *
  * @package    dataformat_markdown
  * @copyright  2016 Charles Fulton (fultonc@lafayette.edu)
@@ -24,6 +24,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2016032400;
-$plugin->requires  = 2016031700;  // Requires this Moodle version.
 $plugin->component = 'dataformat_markdown';
+$plugin->version   = 2016042900;
+$plugin->requires  = 2016042600;  // Requires this Moodle version.
+$plugin->maturity  = MATURITY_STABLE;
+$plugin->release   = 'v1.0.0';
