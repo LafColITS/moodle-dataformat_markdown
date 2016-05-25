@@ -23,4 +23,5 @@
  */
 
 $string['dataformat'] = 'Markdown (.md)';
+$string['pluginname'] = 'Markdown dataformat';
 $string['shortname'] = 'Markdown';
