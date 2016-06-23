@@ -35,34 +35,105 @@ defined('MOODLE_INTERNAL') || die();
  */
 class writer extends \core\dataformat\base {
 
+    // Pre-process this many records.
+    const FLUSH_LENGTH = 100;
+
     /** @var $mimetype */
     public $mimetype = "text/markdown";
 
     /** @var $extension */
     public $extension = ".md";
 
+    /** @var $columns */
+    private $columns = array();
+
+    /** @var $columnlength */
+    private $columnlength = array();
+
+    /** @var $flushed */
+    private $flushed = 0;
+
+    /** @var $records */
+    private $records = array();
+
     /**
-     * Write the start of the format
+     * Write the start of the format. The records will be flushed after column length is calculated.
      *
      * @param array $columns
      */
     public function write_header($columns) {
-        $this->write_record($columns, -1);
-        $this->write_record(array_fill(0, count($columns), '---'), -1);
+        $this->columns = $columns;
+        foreach ($columns as $key => $column) {
+            $this->columnlength[$key] = \core_text::strlen($column);
+        }
     }
 
     /**
-     * Write a single record
+     * Write a single record. The records will be flushed after column length is calculated.
      *
      * @param array $record
      * @param int $rownum
      */
     public function write_record($record, $rownum) {
-        echo '|' . $this->sanitize_record(implode('|', $record)) . '|' . "\n";
+        if (!$this->flushed && $rownum == self::FLUSH_LENGTH) {
+            $this->flush();
+        }
+        if (!$this->flushed && $rownum < self::FLUSH_LENGTH) {
+            // Calculate column widths.
+            foreach ($record as $key => $value) {
+                $length = \core_text::strlen($value);
+                if ($length > $this->columnlength[$key]) {
+                    $this->columnlength[$key] = $length;
+                }
+            }
+            $this->records[] = $record;
+        } else {
+            $this->print_record($record);
+        }
     }
 
     /**
-     * Remove line breaks from a record
+     * If the number of records was fewer than FLUSH_LENGTH, flush.
+     *
+     * @param array $columns (unused)
+     */
+    public function write_footer($columns) {
+        if (!$this->flushed) {
+            $this->flush();
+        }
+    }
+
+    /**
+     * Write the column and pre-processed records.
+     */
+    private function flush() {
+        $this->print_record($this->columns);
+        $separators = array();
+        foreach ($this->columnlength as $key => $length) {
+            $separators[$key] = str_pad('', $length, '-');
+        }
+        $this->print_record($separators);
+        foreach ($this->records as $record) {
+            $this->print_record($record);
+        }
+        $this->flushed = 1;
+    }
+
+    /**
+     * Actually output a record.
+     *
+     * @param array $record
+     */
+    private function print_record($record) {
+        $values = array();
+        foreach ($this->columnlength as $key => $length) {
+            $values[] = str_pad($this->sanitize_record($record[$key]), $length);
+        }
+        echo implode(' | ', $values) . "\n";
+    }
+
+    /**
+     * Remove line breaks from a record.
      *
      * @param string $record
      * @return string
