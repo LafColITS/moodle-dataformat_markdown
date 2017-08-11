@@ -18,7 +18,7 @@
  * Markdown dataformat lang strings.
  *
  * @package    dataformat_markdown
- * @copyright  2016 Charles Fulton (fultonc@lafayette.edu)
+ * @copyright  2016 Lafayette College ITS
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

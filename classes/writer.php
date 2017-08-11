@@ -18,7 +18,7 @@
  * Markdown data format writer
  *
  * @package    dataformat_markdown
- * @copyright  Charles Fulton (fultonc@lafayette.edu)
+ * @copyright  2016 Lafayette College ITS
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die();
  * Markdown data format writer
  *
  * @package    dataformat_markdown
- * @copyright  2016 Charles Fulton (fultonc@lafayette.edu)
+ * @copyright  2016 Lafayette College ITS
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class writer extends \core\dataformat\base {
