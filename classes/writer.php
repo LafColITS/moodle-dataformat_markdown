@@ -35,25 +35,25 @@ defined('MOODLE_INTERNAL') || die();
  */
 class writer extends \core\dataformat\base {
 
-    // Pre-process this many records.
+    /** @var FLUSH_LENGTH Pre-process this many records. */
     const FLUSH_LENGTH = 100;
 
-    /** @var $mimetype */
+    /** @var $mimetype The mimetype for the outputted file. */
     public $mimetype = "text/markdown";
 
-    /** @var $extension */
+    /** @var $extension The file extension for the outputted file. */
     public $extension = ".md";
 
-    /** @var $columns */
+    /** @var $columns Column headings for the data. */
     private $columns = array();
 
-    /** @var $columnlength */
+    /** @var $columnlength Stores the maximum found record length of each column. */
     private $columnlength = array();
 
-    /** @var $flushed */
+    /** @var $flushed Whether the the preprocessed records have been flushed. */
     private $flushed = 0;
 
-    /** @var $records */
+    /** @var $records Stores the records until they're flushed. */
     private $records = array();
 
     /**
