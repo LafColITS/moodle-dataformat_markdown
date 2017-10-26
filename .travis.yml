@@ -2,9 +2,6 @@ language: php
 
 sudo: false
 
-addons:
-  postgresql: 9.3
-
 cache:
   directories:
     - $HOME/.composer/cache
@@ -12,31 +9,14 @@ cache:
 php:
  - 5.6
  - 7.0
- - 7.1
 
 env:
  matrix:
   - DB=pgsql MOODLE_BRANCH=MOODLE_31_STABLE
-  - DB=pgsql MOODLE_BRANCH=MOODLE_32_STABLE
-  - DB=pgsql MOODLE_BRANCH=MOODLE_33_STABLE
-  - DB=pgsql MOODLE_BRANCH=master
   - DB=mysqli MOODLE_BRANCH=MOODLE_31_STABLE
-  - DB=mysqli MOODLE_BRANCH=MOODLE_32_STABLE
-  - DB=mysqli MOODLE_BRANCH=MOODLE_33_STABLE
-  - DB=mysqli MOODLE_BRANCH=master
-
-matrix:
- exclude:
-  - php: 5.6
-    env: DB=pgsql MOODLE_BRANCH=master
-  - php: 5.6
-    env: DB=mysqli MOODLE_BRANCH=master
-  - php: 7.1
-    env: DB=pgsql MOODLE_BRANCH=MOODLE_31_STABLE
-  - php: 7.1
-    env: DB=mysqli MOODLE_BRANCH=MOODLE_31_STABLE
 
 before_install:
+  - phpenv config-rm xdebug.ini
   - cd ../..
   - composer selfupdate
   - composer create-project -n --no-dev moodlerooms/moodle-plugin-ci ci ^1
@@ -50,4 +30,9 @@ script:
   - moodle-plugin-ci phpcpd
   - moodle-plugin-ci phpmd
   - moodle-plugin-ci codechecker
+  - moodle-plugin-ci csslint
+  - moodle-plugin-ci shifter
+  - moodle-plugin-ci jshint
+  - moodle-plugin-ci validate
   - moodle-plugin-ci phpunit
+  - moodle-plugin-ci behat
