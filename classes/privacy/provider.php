@@ -15,14 +15,28 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Markdown dataformat lang strings.
+ * Privacy implementation for dataformat_markdown.
  *
- * @package    dataformat_markdown
- * @copyright  2016 Lafayette College ITS
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   dataformat_markdown
+ * @copyright 2018 Lafayette College ITS
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['dataformat'] = 'Markdown (.md)';
-$string['pluginname'] = 'Markdown dataformat';
-$string['privacy:metadata'] = 'The Markdown dataformat plugin does not store any personal data.';
-$string['shortname'] = 'Markdown';
+namespace dataformat_markdown\privacy;
+
+defined('MOODLE_INTERNAL') || die();
+
+class provider implements
+    // This plugin does not store any personal user data.
+    \core_privacy\local\metadata\null_provider {
+
+    /**
+     * Get the language string identifier with the component's language
+     * file to explain why this plugin stores no data.
+     *
+     * @return  string
+     */
+    public static function get_reason() {
+        return 'privacy:metadata';
+    }
+}
