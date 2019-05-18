@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Basic unit tests.
+ * Basic unit tests for dataformat_markdown.
  *
  * @package    dataformat_markdown
  * @copyright  2017 Lafayette College ITS
@@ -28,6 +28,13 @@ global $CFG;
 
 require_once($CFG->dirroot.'/lib/dataformatlib.php');
 
+/**
+ * Basic unit tests for dataformat_markdown.
+ *
+ * @package    dataformat_markdown
+ * @copyright  2017 Lafayette College ITS
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class dataformat_markdown_export_testcase extends basic_testcase {
     public function test_export() {
         $fields = array('fruit', 'color');
