@@ -26,6 +26,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'dataformat_markdown';
 $plugin->version   = 2018051300;
-$plugin->requires  = 2018051700;  // Requires this Moodle version.
+$plugin->requires  = 2018120300;  // Requires this Moodle version.
 $plugin->maturity  = MATURITY_STABLE;
 $plugin->release   = 'v3.4.0';

@@ -7,7 +7,7 @@ This plugin makes Markdown tables available as a dataformat export option. See t
 
 Requirements
 ------------
-- Moodle 3.5 (build 2018051700 or later)
+- Moodle 3.6 (build 2018120300 or later)
 
 Installation
 ------------
