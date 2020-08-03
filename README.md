@@ -1,7 +1,7 @@
 Markdown dataformat
 ===================
 
-[![Build Status](https://travis-ci.org/LafColITS/moodle-dataformat_markdown.svg?branch=master)](https://travis-ci.org/LafColITS/moodle-dataformat_markdown)
+[![Build Status](https://travis-ci.org/LafColITS/moodle-dataformat_markdown.svg)](https://travis-ci.org/LafColITS/moodle-dataformat_markdown)
 
 This plugin makes Markdown tables available as a dataformat export option. See the [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#tables) for more information on Markdown table markup and [Data formats](https://docs.moodle.org/dev/Data_formats) for more information on the dataformat plugin type.
 
