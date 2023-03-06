@@ -6,6 +6,7 @@
 - Update CI tool to version 3
 - Drop support for Moodle 3.6-3.8
 - Migrate CI builds to Github Actions
+- Resolve standards issues, mostly MDLSITE-6594
 
 ## 3.6.0 (June 15, 2020)
 
