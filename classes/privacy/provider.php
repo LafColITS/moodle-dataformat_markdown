@@ -24,8 +24,6 @@
 
 namespace dataformat_markdown\privacy;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Privacy implementation for dataformat_markdown.
  *

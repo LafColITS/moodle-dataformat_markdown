@@ -24,8 +24,6 @@
 
 namespace dataformat_markdown;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Markdown data format writer
  *

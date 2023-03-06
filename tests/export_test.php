@@ -22,6 +22,8 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+namespace dataformat_markdown;
+
 defined('MOODLE_INTERNAL') || die();
 
 global $CFG;
@@ -35,7 +37,7 @@ require_once($CFG->dirroot.'/lib/dataformatlib.php');
  * @copyright  2017 Lafayette College ITS
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class dataformat_markdown_export_testcase extends basic_testcase {
+class export_testcase extends \basic_testcase {
     public function test_export() {
         $fields = array('fruit', 'color');
         $records = array(
@@ -43,12 +45,12 @@ class dataformat_markdown_export_testcase extends basic_testcase {
             array('Banana', 'yellow'),
             array('Orange', 'orange')
         );
-        $downloadrecords = new ArrayObject($records);
+        $downloadrecords = new \ArrayObject($records);
         $iterator = $downloadrecords->getIterator();
 
         // Verify export.
         $expected = "fruit  | color \n------ | ------\nApple  | red   \nBanana | yellow\nOrange | orange\n";
-        $format = new dataformat_markdown\writer();
+        $format = new writer();
         ob_start();
         $c = 0;
         $format->write_header($fields);
