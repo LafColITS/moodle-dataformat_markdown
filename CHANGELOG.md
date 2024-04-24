@@ -1,12 +1,13 @@
 # Changelog
 
-## Unreleased
+## 4.1.0 (April 24, 2024)
 
 - Change default branch to "main"
 - Update CI tool to version 3
 - Drop support for Moodle 3.6-4.0
 - Migrate CI builds to Github Actions
 - Resolve standards issues, mostly MDLSITE-6594
+- Update path per MDL-68500
 
 ## 3.6.0 (June 15, 2020)
 
