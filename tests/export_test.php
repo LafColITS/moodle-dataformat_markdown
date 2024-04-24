@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 
 global $CFG;
 
-require_once($CFG->dirroot.'/lib/dataformatlib.php');
+require_once($CFG->dirroot.'/lib/classes/dataformat.php');
 
 /**
  * Basic unit tests for dataformat_markdown.
