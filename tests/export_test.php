@@ -37,7 +37,7 @@ require_once($CFG->dirroot.'/lib/classes/dataformat.php');
  * @copyright  2017 Lafayette College ITS
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class export_testcase extends \basic_testcase {
+class export_test extends \basic_testcase {
     public function test_export() {
         $fields = array('fruit', 'color');
         $records = array(
