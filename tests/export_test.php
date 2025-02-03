@@ -37,14 +37,14 @@ require_once($CFG->dirroot.'/lib/classes/dataformat.php');
  * @copyright  2017 Lafayette College ITS
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class export_test extends \basic_testcase {
-    public function test_export() {
-        $fields = array('fruit', 'color');
-        $records = array(
-            array('Apple', 'red'),
-            array('Banana', 'yellow'),
-            array('Orange', 'orange')
-        );
+final class export_test extends \basic_testcase {
+    public function test_export(): void {
+        $fields = ['fruit', 'color'];
+        $records = [
+            ['Apple', 'red'],
+            ['Banana', 'yellow'],
+            ['Orange', 'orange'],
+        ];
         $downloadrecords = new \ArrayObject($records);
         $iterator = $downloadrecords->getIterator();
 

@@ -43,16 +43,16 @@ class writer extends \core\dataformat\base {
     public $extension = ".md";
 
     /** @var $columns Column headings for the data. */
-    private $columns = array();
+    private $columns = [];
 
     /** @var $columnlength Stores the maximum found record length of each column. */
-    private $columnlength = array();
+    private $columnlength = [];
 
     /** @var $flushed Whether the the preprocessed records have been flushed. */
     private $flushed = 0;
 
     /** @var $records Stores the records until they're flushed. */
-    private $records = array();
+    private $records = [];
 
     /**
      * Write the start of the format. The records will be flushed after column length is calculated.
@@ -106,7 +106,7 @@ class writer extends \core\dataformat\base {
      */
     private function flush() {
         $this->print_record($this->columns);
-        $separators = array();
+        $separators = [];
         foreach ($this->columnlength as $key => $length) {
             $separators[$key] = str_pad('', $length, '-');
         }
@@ -123,7 +123,7 @@ class writer extends \core\dataformat\base {
      * @param array $record
      */
     private function print_record($record) {
-        $values = array();
+        $values = [];
         foreach ($this->columnlength as $key => $length) {
             $values[] = str_pad($this->sanitize_record($record[$key]), $length);
         }
