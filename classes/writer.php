@@ -32,7 +32,6 @@ namespace dataformat_markdown;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class writer extends \core\dataformat\base {
-
     /** @var FLUSH_LENGTH Pre-process this many records. */
     const FLUSH_LENGTH = 100;
 
