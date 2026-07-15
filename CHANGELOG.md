@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.1.1 (July 15, 2026)
+
+- Add composer support
+
 ## 4.1.0 (April 24, 2024)
 
 - Change default branch to "main"

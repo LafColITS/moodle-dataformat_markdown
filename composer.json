@@ -1,0 +1,12 @@
+{
+    "name": "lafayettecollege/moodle-dataformat_markdown",
+    "description": "This plugin makes Markdown tables available as a dataformat export option.",
+    "type": "moodle-dataformat",
+    "require": {
+        "composer/installers": "*"
+    },
+    "license": "GPL-3.0-or-later",
+    "extra": {
+        "installer-name": "markdown"
+    }
+}
