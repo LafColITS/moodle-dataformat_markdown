@@ -34,6 +34,7 @@ require_once($CFG->dirroot . '/lib/classes/dataformat.php');
  * Basic unit tests for dataformat_markdown.
  *
  * @package    dataformat_markdown
+ * @covers     \dataformat_markdown\writer
  * @copyright  2017 Lafayette College ITS
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
